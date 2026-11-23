@@ -18,9 +18,33 @@
       font-size: 3rem;
       margin: 0;
     }
+    #clock {
+      font-size: 1.25rem;
+      margin-top: 0.5rem;
+      color: #555;
+    }
   </style>
 </head>
 <body>
-  <h1>Hello, World!</h1>
+  <main>
+    <h1>Hello, World!</h1>
+    <div id="clock"></div>
+  </main>
+  <script>
+    const clock = document.getElementById("clock");
+    function tick() {
+      clock.textContent = new Date().toLocaleString(undefined, {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit"
+      });
+    }
+    tick();
+    setInterval(tick, 1000);
+  </script>
 </body>
 </html>
